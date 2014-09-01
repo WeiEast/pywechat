@@ -1,0 +1,18 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>地图导航</title>
+<script src="http://api.map.baidu.com/components?ak=GQdqg6hNadUr8uWztdezqQqA&v=1.0">
+</script>
+<link rel="stylesheet" type="text/css" href="../../static/main.css">
+
+</head>
+<body>
+
+<lbs-map style="height:100%">
+    <lbs-poi name="{{title}}" location="{{lng}}, {{lat}}" addr="{{key}}"  icon-src="http://api0.map.bdimg.com/images/marker_red_sprite.png" height="25px" width="39px">
+    </lbs-poi>
+</lbs-map>
+</body>
+</html>

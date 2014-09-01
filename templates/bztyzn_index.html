@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{title_name}}</title>
+        <link rel="stylesheet" type="text/css" href="../../static/main.css">
+        <style type="text/css">
+            h1{ text-align: center;margin: 0;padding: 10px 0;font-size:18px;background-color:#575EE5;color:#fff;}
+
+            .segment { display: block;padding: 14px 30px 14px 14px;border-radius: 4px;color: #333;margin: 0;border-bottom: solid 1px #ddd;font-size: 14px;background:url(http://xwrwz.qiniudn.com/rightsprites.png) no-repeat 95% center #fff;background-size:14px;}
+        </style>
+    </head>
+    <body>
+    <h1>{{title}}</h1>
+        {% for each in data%}
+            <a class="segment" href="{{next_route}}{{each}}">{{each}}</a>
+        {% endfor %}
+    </body>
+</html>

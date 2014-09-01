@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <title>{{title_name}}</title>
+        <link rel="stylesheet" type="text/css" href="../../static/main.css">
+        <style type="text/css">
+            h1{ text-align: center;margin: 0;padding: 10px 0;font-size:18px;background-color:#575EE5;color:#fff;}
+            h1 input{ height:28px;width:28px;background: url(http://xwrwz.qiniudn.com/leftsprites.png) no-repeat;background-size: 26px;margin:3px 0 0 15px;border:none;float: left;}
+            h1 span{ margin-left: -15px;}
+            .content{ padding:0;margin:0;}
+            div.header{ padding: 0;}
+            div p{ margin:0;text-align:left; }
+            div p a{ margin:0;text-align:left;color:#3b70e1;display: block;line-height: 20px;float:left;width:100%;background:url(http://xwrwz.qiniudn.com/rightsprites.png) no-repeat 95% center;background-size:14px;}
+            #wrap div{ padding:10px;}
+            #wrap .bc{ background-color:#f5f5f5;}
+        </style>
+    </head>
+
+    <body>
+    <h1><input type="submit" value="" onclick="javascript:history.go(-1);"/><span>{{title}}</span></h1>
+        <pre class="content" id="wrap">{{content|safe}}</pre>
+    <script type="text/javascript">
+        var wrap = document.getElementById("wrap");
+        del_ff(wrap);
+        function del_ff(elem){
+            var elem_child = elem.children;
+            for(var i=0; i<elem_child.length;i++){
+                if(i%2==0){
+                    elem_child[i].className="bc";
+                }
+            }
+
+        }
+
+    </script>
+    </body>
+</html>
