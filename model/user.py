@@ -45,7 +45,7 @@ def user_rm(id):
 
 
 def user_result_save(id, result):
-    redis.rpush(R_USER_RESULT_LIST % id, 'abcdef')
+    redis.rpush(R_USER_RESULT_LIST % id, result)
 
 
 def user_result_dumps(id, offset=0, limit=0):
@@ -56,4 +56,3 @@ if __name__ == '__main__':
     # print user_in_indivduality('lzy')
     # print user_rm('lzy')
     pass
-
