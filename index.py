@@ -63,6 +63,7 @@ def msg_handle():
             return Rp.rp_text_msg(INDIVIDUAL_RESPONSE)
 
     elif is_text_msg(msg):
+        print 'helloworld'
         if user_in_indivduality(user_id):   # 请求个性化告知服务
             return IRp.individual_response()
         else:
