@@ -6,6 +6,7 @@ class WECHAT:
     APPID = "wx5c410437a8e81c6f"
     APPSECRET = "64b6cc4ab4bb33e38979105d52344b39"
     TOKEN = "helloworld"
+    INDIVIDUAL_TOKEN = 'personal_tell'
 
 
 class REDIS_CONFIG:

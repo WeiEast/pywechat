@@ -60,7 +60,7 @@ def msg_handle():
         return Rp.response_text_msg(WELCOME_MESSAGE)
 
     elif is_click_event(msg):    # 用户点击了微信菜单上的click事件按钮
-        if msg['EventKey'] == WECHAT.TOKEN:
+        if msg['EventKey'] == WECHAT.INDIVIDUAL_TOKEN:
             user_rm(user_id)
             user_individuality_new(user_id)
             return Rp.response_text_msg(msg, INDIVIDUAL_RESPONSE)
