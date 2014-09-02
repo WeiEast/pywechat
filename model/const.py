@@ -25,4 +25,4 @@ NO_THIS_SELECTION = u"对不起, 你输入的选项有误. 重新选择请输入
 
 FIND_NO_RP = u"您好，我们的微信服务号暂不提供人工服务，如您需要人工咨询，请您拨打69547016."
 
-EXTRA_NOTICE = u"\n[0]返回上一层"
+EXTRA_NOTICE = u"\n【0】返回上一层"

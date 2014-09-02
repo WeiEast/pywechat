@@ -105,7 +105,6 @@ class IndividualRepoter:
         else:
             result = '{}{}'.format(rp, EXTRA_NOTICE)
 
-        # raise Exception('hehehehheheh')
         return result
 
     def find_individual_rp(self, select_list):
@@ -138,7 +137,7 @@ class IndividualRepoter:
                 path = self.root + '/' + os.sep.join(self.path)
 
                 readme, content, continue_ask = self.get_files_content(files, path)
-                result = '\n'.join([readme, content])
+                result = ''.join([readme, content])
 
                 if continue_ask:
                     return result.strip()
