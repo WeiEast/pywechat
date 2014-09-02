@@ -63,11 +63,11 @@ def msg_handle():
 
     elif is_text_msg(msg):
         if user_in_indivduality(user_id):   # 请求个性化告知服务
+            raise Exception('hehe')
             return IRp.individual_response()
         else:
             return Rp.make_rp()
-    raise Exception('hehe')
-
+    raise Exception('bbbbbb')
 
 @app.route('/individual')
 def individual():
