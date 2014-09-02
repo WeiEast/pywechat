@@ -15,7 +15,7 @@ from _base.config import WECHAT, PATH, HOST
 from model.parse import verify, parse_msg, is_subscribe_event, is_text_msg, is_click_event
 from model.responser import Responser, IndividualRepoter
 from model.const import WELCOME_MESSAGE, INDIVIDUAL_RESPONSE
-from model.user import user_rm, user_individuality_new, user_in_indivduality, user_result_dumps, user_indivduality_rm
+from model.user import user_rm, user_individuality_new, user_in_indivduality, user_result_dumps
 from model.directory_tree import D
 from model.file import folders_list, files_list, get_file_content, all_is_file
 from model.decision import decision_content_dumps
@@ -64,7 +64,6 @@ def msg_handle():
     elif is_text_msg(msg):
         if user_in_indivduality(user_id):   # 请求个性化告知服务
             result = IRp.individual_response()
-            user_indivduality_rm(user_id)
             return Rp.rp_text_msg(result)
         else:
             return Rp.make_rp()
