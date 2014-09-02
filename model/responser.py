@@ -105,7 +105,7 @@ class IndividualRepoter:
         else:
             result = '{}{}'.format(rp, EXTRA_NOTICE)
 
-        raise Exception('hehehehheheh')
+        # raise Exception('hehehehheheh')
         return result
 
     def find_individual_rp(self, select_list):
