@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-# from _base.config import REDIS_CONFIG
+from _base.config import REDIS_CONFIG
 import redis as _redis
 from _base.intstr import int_str
 
@@ -43,10 +43,10 @@ class RedisKey:
             return _key
 
 # for bae
-# auth = "{}-{}-{}".format(REDIS_CONFIG.API_KEY, REDIS_CONFIG.SECRET_KEY, REDIS_CONFIG.NAME)
-# redis = _redis.StrictRedis(host="redis.duapp.com", port=80, password=auth)
+auth = "{}-{}-{}".format(REDIS_CONFIG.API_KEY, REDIS_CONFIG.SECRET_KEY, REDIS_CONFIG.NAME)
+redis = _redis.StrictRedis(host="redis.duapp.com", port=80, password=auth)
 
 # for local test
-redis = _redis.StrictRedis(host="127.0.0.1", port=6379)
+# redis = _redis.StrictRedis(host="127.0.0.1", port=6379)
 
 R = RedisKey(redis)

@@ -1,25 +1,23 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
-########## 预定义回复  ##########
-
+# 被抛弃的需求, 但它是能用的 --- 在解除一些注释后.: )
+# 预定义回复: 接受用户发来的消息, 返回定义好的内容. 如: "现在几点?" -> "25:00pm"
 RP = {}
-# article_url = "http://pwechat.duapp.com/weixin/article?name={}"
-# picture text
-# formation: {type, title, content, pic_url, url}
-# RULES['pic'] = [1, "Help Info", "我真的是一个图文信息:)",
-#                 "http://kzing.net/static/Image/homePagePic.jpg",
-#                 article_url.format("help.md")]
 
-# RULES['tp'] = [1, "hello, pic", "我也是图文信息",
-#                "http://www.baidu.com/img/baidu_sylogo1.gif", article_url.format('nothing')]
+text = 0
+pic = 1
 
 
-# normal text
-# formation: {type, content}
-# RULES['code'] = [0, "I Love coding :)"]
-# RULES['chinese'] = [0, "你好, 需求是什么? :)"]
-# RULES['help'] = [0, "帮助信息:\n回复pic, 查看图文信息\n回复chinese,查看中文信息\n... ..."]
+# 文本回复
+# 格式: [关键词] = [类型, 内容]
+# 示例: RP[some_key_word] = [text, "I Love Coding"]
+
+
+# 图文回复
+# 格式: [关键词] = [类型, 标题, 内容, 图片链接, 文章链接]
+# 示例: RP[some_key_word] = [pic, "title", 'content', "image_url", "article_url"]

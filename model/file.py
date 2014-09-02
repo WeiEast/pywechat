@@ -58,12 +58,12 @@ def reST_to_html_fragment(a_str):
 
 
 def all_is_file(path):
-        for f in os.listdir(path):
-            if f.startswith('.'):
-                continue
-            if not f.endswith(('.txt', '.rst', '.pdf')):
-                return False
-        return True
+    for f in os.listdir(path):
+        if f.startswith('.'):
+            continue
+        if not f.endswith(('.txt', '.rst', '.pdf')):
+            return False
+    return True
 
 
 if __name__ == '__main__':

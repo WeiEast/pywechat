@@ -11,7 +11,7 @@ import os
 import json
 import requests
 import re
-from _base.config import WECHAT, PATH, GLOBAL
+from _base.config import WECHAT, PATH, HOST
 from model.parse import verify, parse_msg, is_subscribe_event, is_text_msg, is_click_event
 from model.responser import Responser, IndividualRepoter
 from model.const import WELCOME_MESSAGE, INDIVIDUAL_RESPONSE
@@ -131,7 +131,7 @@ def common_tell_doc():
                            data=data,
                            title=path[2:],
                            description=description,
-                           pdf_src=GLOBAL.QINIU,
+                           pdf_src=HOST.QINIU,
                            next_route="/guide/licence/article?file_name="
                            )
 
@@ -281,7 +281,17 @@ def map():
                            )
 
 
-# from bae.core.wsgi import WSGIApplication
-# application = WSGIApplication(app)
-if __name__ == '__main__':
-    app.run()
+# 需要时使用
+# @app.route('/article')
+# def article():
+#     """图文信息或其它article的展示页面
+#     """
+#     name = request.args.get('article_name').encode('utf-8')
+#     content = get_file_content(name, 'article')
+#     return render_template('detail.html', content=content, title=name)
+
+
+from bae.core.wsgi import WSGIApplication
+application = WSGIApplication(app)
+# if __name__ == '__main__':
+#     app.run()

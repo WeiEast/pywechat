@@ -9,7 +9,7 @@ from time import time
 import re
 import os
 from decision import decision_links_dumps
-from _base.config import GLOBAL
+from _base.config import HOST
 from file import reST_to_html_fragment, all_is_file
 
 
@@ -101,7 +101,7 @@ class IndividualRepoter:
         if rp == self.SELECT_FAIL:
             result = NO_THIS_SELECTION
         elif rp == self.IS_ANSWER:
-            result = ANSWER_LINK.format(GLOBAL.HOST, 'individual', self.id)
+            result = ANSWER_LINK.format(HOST.MAIN, 'individual', self.id)
         else:
             result = '{}{}'.format(rp, EXTRA_NOTICE)
 
@@ -243,6 +243,7 @@ class SelectException(Exception):
         return self.value
 
 
+# 图文信息的项
 class Item:
 
     def __init__(self, title, txt, pic_url, url):
@@ -254,16 +255,17 @@ class Item:
 
 if __name__ == '__main__':
 
-    # from directory_tree import D
-    # msg = {'FromUserName': 'lzy', 'ToUserName': 'kzing'}
+    from directory_tree import D
+    from _base.config import PATH
+    msg = {'FromUserName': 'lzy', 'ToUserName': 'kzing'}
 
-    # select = ['2', '1', '1,5,6,7,8', '3']
-    # user_rm('lzy')
-    # for i in select:
-    #     msg['Content'] = i
-    #     r = IndividualRepoter(msg, D, PATH.INDIVIDUAL_PATH)
-    #     r.individual_response()
-        # print user_select_list(msg['FromUserName'])
+    select = ['2', '1', '1,5,6,7,8', '3']
+    user_rm('lzy')
+    for i in select:
+        msg['Content'] = i
+        r = IndividualRepoter(msg, D, PATH.INDIVIDUAL_PATH)
+        r.individual_response()
+    print user_select_list(msg['FromUserName'])
     # print D
     # print(user_result_dumps(msg['FromUserName']))
-    pass
+    # pass

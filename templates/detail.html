@@ -8,6 +8,8 @@
         <meta charset="utf-8">
         <title>{{title_name}}</title>
         <link rel="stylesheet" type="text/css" href="../../static/main.css">
+        <script type="text/javascript" src="../../static/semantic.min.js"></script>
+
         <style type="text/css">
             h1{ text-align: center;margin: 0;padding: 10px 0;font-size:18px;background-color:#575EE5;color:#fff;}
             h1 input{ height:28px;width:28px;background: url(http://xwrwz.qiniudn.com/leftsprites.png) no-repeat;background-size: 26px;margin:3px 0 0 15px;border:none;float: left;}
@@ -22,7 +24,10 @@
     </head>
 
     <body>
+
     <h1><input type="submit" value="" onclick="javascript:history.go(-1);"/><span>{{title}}</span></h1>
+    <div class="ui segment">
         <pre class="content" id="wrap">{{content|safe}}</pre>
+    </div>
     </body>
 </html>
