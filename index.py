@@ -60,7 +60,7 @@ def msg_handle():
         if msg['EventKey'] == WECHAT.INDIVIDUAL_TOKEN:
             user_rm(user_id)
             user_individuality_new(user_id)
-            return Rp.rp_text_msg(msg, INDIVIDUAL_RESPONSE)
+            return Rp.rp_text_msg(INDIVIDUAL_RESPONSE)
 
     elif is_text_msg(msg):
         if user_in_indivduality(user_id):   # 请求个性化告知服务
