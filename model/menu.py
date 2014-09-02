@@ -16,22 +16,22 @@ MENU_TEMPLE = {
                 {
                     "type": "view",
                     "name": "我去哪儿办照",
-                    "url": "http://pwechat.duapp.com/guide/map"
+                    "url": "http://pywechattest.duapp.com/guide/map"
                 },
                 {
                     "type": "view",
                     "name": "网上登记",
-                    "url": "http://pwechat.duapp.com/guide/web_register"
+                    "url": "http://pywechattest.duapp.com/guide/web_register"
                 },
                 {
                     "type": "view",
                     "name": "三证合一办理",
-                    "url": "http://pwechat.duapp.com/guide/3in1"
+                    "url": "http://pywechattest.duapp.com/guide/3in1"
                 },
                 {
                     "type": "view",
                     "name": "办照通用指南",
-                    "url": "http://pwechat.duapp.com/guide/licence"
+                    "url": "http://pywechattest.duapp.com/guide/licence"
                 },
             ]
         },
@@ -46,7 +46,7 @@ MENU_TEMPLE = {
                 {
                     "type": "view",
                     "name": "信用信息APP",
-                    "url": "http://pwechat.duapp.com/truth/app"
+                    "url": "http://pywechattest.duapp.com/truth/app"
                 },
                 {
                     "type": "view",
@@ -61,17 +61,17 @@ MENU_TEMPLE = {
                 {
                     "type": "view",
                     "name": "微服务",
-                    "url": "http://pwechat.duapp.com/e/server"
+                    "url": "http://pywechattest.duapp.com/e/server"
                 },
                 {
                     "type": "view",
                     "name": "微互动",
-                    "url": "http://pwechat.duapp.com/e/interactive"
+                    "url": "http://pywechattest.duapp.com/e/interactive"
                 },
                 {
                     "type": "view",
                     "name": "微导航",
-                    "url": "http://pwechat.duapp.com/e/map"
+                    "url": "http://pywechattest.duapp.com/e/map"
                 }
             ]
         }

@@ -5,9 +5,13 @@ from _base.config import WECHAT
 import xml.etree.ElementTree as ET
 
 
-def verify(signature, timestamp, nonce):
+def verify(request):
+    signature = request.args.get('signature')
+    timestamp = request.args.get('timestamp')
+    nonce = request.args.get('nonce')
     _t = ''.join(sorted([WECHAT.TOKEN, timestamp, nonce]))
     hashstr = hashlib.sha1(_t).hexdigest()
+
     return hashstr == signature
 
 

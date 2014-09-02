@@ -34,11 +34,8 @@ def i_am_ok():
 def access_verify():
     """ 微信认证接口
     """
-    signature = request.args.get('signature')
-    timestamp = request.args.get('timestamp')
-    nonce = request.args.get('nonce')
     echostr = request.args.get('echostr')
-    if verify(signature, timestamp, nonce) and echostr:
+    if verify(request) and echostr:
         return echostr
     raise Exception('access verification fail')
 
