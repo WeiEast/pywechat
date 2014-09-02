@@ -1,11 +1,12 @@
 #!/usr/bin/env python
-#coding:utf-8
-from _base.db import redis, R
-
+# coding:utf-8
+from _base.db import redis, R, mongo
 
 R_USER_SELECT_LIST = R.USER_SELECT_LIST("%s")
 R_USER_STATE_SET = R.USER_STATE_SET("%s")
-R_USER_RESULT_LIST = R.USER_RESULT_LIST("%s")
+# R_USER_RESULT_LIST = R.USER_RESULT_LIST("%s")
+
+M_USER_RESULT = 'M_USER_RESULT'
 
 
 def user_select_new(id, select):
@@ -17,7 +18,7 @@ def user_select_pop(id):
 
 
 def user_select_list(id, offset=0, limit=0):
-    return redis.lrange(R_USER_SELECT_LIST % id, offset, offset+limit-1)
+    return redis.lrange(R_USER_SELECT_LIST % id, offset, offset + limit - 1)
 
 
 def user_individuality_new(id):
@@ -40,19 +41,15 @@ def user_indivduality_rm(id):
 
 def user_rm(id):
     redis.delete(R_USER_SELECT_LIST % id)
-    redis.delete(R_USER_RESULT_LIST % id)
+    # redis.delete(R_USER_RESULT_LIST % id)
     redis.srem(R_USER_STATE_SET, id)
 
 
 def user_result_save(id, result):
-    redis.rpush(R_USER_RESULT_LIST % id, result)
+    # redis.rpush(R_USER_RESULT_LIST % id, result)
+    mongo.upsert(M_USER_RESULT, id, result)
 
 
 def user_result_dumps(id, offset=0, limit=0):
-    return redis.lrange(R_USER_RESULT_LIST % id, offset, offset+limit-1)
-
-if __name__ == '__main__':
-    # user_individuality_new('lzy')
-    # print user_in_indivduality('lzy')
-    # print user_rm('lzy')
-    pass
+    # return redis.lrange(R_USER_RESULT_LIST % id, offset, offset + limit - 1)
+    mongo.find(M_USER_RESULT, id)

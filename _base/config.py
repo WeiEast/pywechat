@@ -9,9 +9,16 @@ class WECHAT:
     INDIVIDUAL_TOKEN = 'personal_tell'
 
 
-class REDIS_CONFIG:
+class REDIS:
 
     NAME = "LQqdnxqpggsdMJUiidei"
+    API_KEY = "GQdqg6hNadUr8uWztdezqQqA"
+    SECRET_KEY = "bdHVnQkuovvaOpo6idKQ5m5j5vGEbnkP"
+
+
+class MONGO:
+
+    NAME = "iVxUvwggMnVIwLZlhmod"
     API_KEY = "GQdqg6hNadUr8uWztdezqQqA"
     SECRET_KEY = "bdHVnQkuovvaOpo6idKQ5m5j5vGEbnkP"
 
