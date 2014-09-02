@@ -63,8 +63,8 @@ def msg_handle():
 
     elif is_text_msg(msg):
         if user_in_indivduality(user_id):   # 请求个性化告知服务
-            # raise Exception('hehe')
-            return IRp.individual_response()
+            result = IRp.individual_response()
+            return Rp.rp_text_msg(result)
         else:
             return Rp.make_rp()
     raise Exception('bbbbbb')
