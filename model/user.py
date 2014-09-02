@@ -45,7 +45,7 @@ def user_rm(id):
 
 
 def user_result_save(id, result):
-    redis.rpush(R_USER_RESULT_LIST % id, result)
+    redis.rpush(R_USER_RESULT_LIST % id, 'abcdef')
 
 
 def user_result_dumps(id, offset=0, limit=0):
