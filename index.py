@@ -47,8 +47,7 @@ def msg_handle():
     if not verify(request):  # 如果消息不是来自微信服务器, 拒绝服务.
         raise Exception('message processing fail')
 
-    data = request.data
-    msg = parse_msg(data)
+    msg = parse_msg(request.data)
     user_id = msg['FromUserName']
     Rp = Responser(msg)
     IRp = IndividualRepoter(msg, D, PATH.INDIVIDUAL_PATH)
@@ -63,12 +62,11 @@ def msg_handle():
             return Rp.rp_text_msg(INDIVIDUAL_RESPONSE)
 
     elif is_text_msg(msg):
-        print 'helloworld'
         if user_in_indivduality(user_id):   # 请求个性化告知服务
             return IRp.individual_response()
         else:
             return Rp.make_rp()
-    raise Exception('dasdasdasd')
+    raise Exception(msg)
 
 
 @app.route('/individual')
