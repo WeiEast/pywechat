@@ -32,6 +32,12 @@ def user_in_indivduality(id):
     return redis.sismember(R_USER_STATE_SET, id)
 
 
+def user_indivduality_rm(id):
+    """退出个性化告知状态
+    """
+    redis.srem(R_USER_STATE_SET, id)
+
+
 def user_rm(id):
     redis.delete(R_USER_SELECT_LIST % id)
     redis.delete(R_USER_RESULT_LIST % id)
