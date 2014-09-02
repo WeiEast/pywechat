@@ -54,13 +54,13 @@ def msg_handle():
     IRp = IndividualRepoter(msg, D, PATH.INDIVIDUAL_PATH)
 
     if is_subscribe_event(msg):  # 新用户关注
-        return Rp.response_text_msg(WELCOME_MESSAGE)
+        return Rp.rp_text_msg(WELCOME_MESSAGE)
 
     elif is_click_event(msg):    # 用户点击了微信菜单上的click事件按钮
         if msg['EventKey'] == WECHAT.INDIVIDUAL_TOKEN:
             user_rm(user_id)
             user_individuality_new(user_id)
-            return Rp.response_text_msg(msg, INDIVIDUAL_RESPONSE)
+            return Rp.rp_text_msg(msg, INDIVIDUAL_RESPONSE)
 
     elif is_text_msg(msg):
         if user_in_indivduality(user_id):   # 请求个性化告知服务
