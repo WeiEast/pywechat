@@ -18,7 +18,7 @@ class REDIS_CONFIG:
 
 class HOST:
 
-    MAIN = "http://pwechat.duapp.com"
+    MAIN = "http://pywechattest.duapp.com"
     QINIU = "http://xwrwz.qiniudn.com/html/"
 
 

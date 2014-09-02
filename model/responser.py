@@ -101,7 +101,7 @@ class IndividualRepoter:
         if rp == self.SELECT_FAIL:
             result = NO_THIS_SELECTION
         elif rp == self.IS_ANSWER:
-            result = ANSWER_LINK.format(HOST.MAIN, 'individual', self.id)
+            result = ANSWER_LINK.format(HOST.MAIN, self.id)
         else:
             result = '{}{}'.format(rp, EXTRA_NOTICE)
 

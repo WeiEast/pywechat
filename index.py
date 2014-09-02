@@ -67,7 +67,7 @@ def msg_handle():
             return Rp.rp_text_msg(result)
         else:
             return Rp.make_rp()
-    raise Exception('bbbbbb')
+    raise Exception('xxx')
 
 
 @app.route('/individual')
