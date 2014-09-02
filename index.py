@@ -70,6 +70,7 @@ def msg_handle():
             return IRp.individual_response()
         else:
             return Rp.make_rp(msg)
+    raise 'Exception'
 
 
 @app.route('/individual')
