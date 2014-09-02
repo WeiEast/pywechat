@@ -66,7 +66,7 @@ def msg_handle():
         if user_in_indivduality(user_id):   # 请求个性化告知服务
             return IRp.individual_response()
         else:
-            return Rp.make_rp(msg)
+            return Rp.make_rp()
     raise 'Exception'
 
 
