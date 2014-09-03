@@ -47,22 +47,19 @@ R = RedisKey(redis)
 
 
 #### mongo
-name = MONGO.NAME
 connection = Connection(host='mongo.duapp.com', port=8908)
-# mongo_db = connection[MONGO.NAME]
-# mongo_db.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
-connection.iVxUvwggMnVIwLZlhmod.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
 mongo_db = connection[MONGO.NAME]
+mongo_db.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
 
 
-# @connection.register
-# class UserResult(Document):
-#     __collection__ = 'user_result'
+@connection.register
+class UserResult(Document):
+    __collection__ = 'user_result'
 
-#     structure = dict(
-#         user_id=int,
-#         result=[]
-#     )
-#     default_values = {
-#         'result': [],
-#     }
+    structure = dict(
+        user_id=int,
+        result=[]
+    )
+    default_values = {
+        'result': [],
+    }

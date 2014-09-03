@@ -47,6 +47,7 @@ def user_rm(id):
 
 def user_result_save(id, result):
     # redis.rpush(R_USER_RESULT_LIST % id, result)
+    result = 'hhhhh'
     u = mongo_db.UserResult.find_one(dict(user_id=id))
     if not u:
         u = mongo_db.UserResult()
