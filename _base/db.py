@@ -55,7 +55,6 @@ mongo_db.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
 @connection.register
 class UserResult(Document):
     __collection__ = 'user_result'
-    __database__ = MONGO.NAME
 
     structure = dict(
         user_id=int,
