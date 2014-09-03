@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding:utf-8
-from _base.db import redis, R, mongo
+from _base.db import redis, R
+from mongokit import Document, Connection
+
 
 R_USER_SELECT_LIST = R.USER_SELECT_LIST("%s")
 R_USER_STATE_SET = R.USER_STATE_SET("%s")
 # R_USER_RESULT_LIST = R.USER_RESULT_LIST("%s")
-
-M_USER_RESULT = 'M_USER_RESULT'
 
 
 def user_select_new(id, select):
@@ -44,12 +44,30 @@ def user_rm(id):
     # redis.delete(R_USER_RESULT_LIST % id)
     redis.srem(R_USER_STATE_SET, id)
 
+connection = Connection(host='mongo.duapp.com', port=8908)
+db = connection[dbname]
+db.authenticate(api_key, secret_key)
+
+
+@connection.register
+class UserResult(Document):
+
+    structure = dict(
+        user_id=int,
+        result=[]
+    )
+    default_values = {
+        'result': [],
+    }
+
 
 def user_result_save(id, result):
     # redis.rpush(R_USER_RESULT_LIST % id, result)
-    mongo.upsert(M_USER_RESULT, id, result)
+    u = UserResult(dict(user_id=id), True)
+    u.result.append(result)
+    u.save()
 
 
-def user_result_dumps(id, offset=0, limit=0):
+def user_result_dumps(id):
     # return redis.lrange(R_USER_RESULT_LIST % id, offset, offset + limit - 1)
-    mongo.find(M_USER_RESULT, id)
+    return UserResult.find_one(dict(user_id=id)).result
