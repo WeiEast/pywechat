@@ -7,7 +7,7 @@ import json
 
 # requirement:
 # 1.下载qrsync同步工具 - > http://developer.qiniu.com/docs/v6/tools/qrsync.html
-# 2.将此脚本与要上传的文件夹同级放置, 运行脚本即可.
+# 2.将此脚本与要上传的文件夹同级放置, 运行即可.
 
 
 def _html():
@@ -41,7 +41,7 @@ def make_html():
 def qrsync():
     """将HTML和对应的JPG上传到七牛.
 
-    默认链接格式为: qiniu_host/html/html_name
+    上传的HTML默认链接格式为: qiniu_host/html/html_name
     """
     CONFIG = {
         "src":          "./",

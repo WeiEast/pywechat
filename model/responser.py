@@ -192,7 +192,6 @@ class IndividualRepoter:
             raise SelectException('Unavailable select: {}'.format(s))
 
     def key_complete(self, select, _next=None):
-
         keys = []
         _D = self.D if not _next else self.D[_next]
         for s in select:

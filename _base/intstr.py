@@ -2,8 +2,6 @@
 #coding:utf-8
 from string import ascii_letters
 
-# author: zsp
-
 
 class IntStr:
 

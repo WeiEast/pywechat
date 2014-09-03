@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding:utf-8
-from _base.db import redis, R
-from mongokit import Document, Connection
+from _base.db import redis, R, mongo_db
 
 
 R_USER_SELECT_LIST = R.USER_SELECT_LIST("%s")
@@ -42,32 +41,25 @@ def user_indivduality_rm(id):
 def user_rm(id):
     redis.delete(R_USER_SELECT_LIST % id)
     # redis.delete(R_USER_RESULT_LIST % id)
+    user_result_rm(id)
     redis.srem(R_USER_STATE_SET, id)
-
-connection = Connection(host='mongo.duapp.com', port=8908)
-db = connection[dbname]
-db.authenticate(api_key, secret_key)
-
-
-@connection.register
-class UserResult(Document):
-
-    structure = dict(
-        user_id=int,
-        result=[]
-    )
-    default_values = {
-        'result': [],
-    }
 
 
 def user_result_save(id, result):
     # redis.rpush(R_USER_RESULT_LIST % id, result)
-    u = UserResult(dict(user_id=id), True)
-    u.result.append(result)
+    u = mongo_db.UserResult.find_one(dict(user_id=id))
+    if not u:
+        u = mongo_db.UserResult()
+    u['user_id'] = id
+    u['result'].append(result)
     u.save()
 
 
 def user_result_dumps(id):
     # return redis.lrange(R_USER_RESULT_LIST % id, offset, offset + limit - 1)
-    return UserResult.find_one(dict(user_id=id)).result
+    result = mongo_db.UserResult.find_one(dict(user_id=id))
+    return result['result'] if result else None
+
+
+def user_result_rm(id):
+    mongo_db.UserResult.collection.remove(dict(user_id=id))

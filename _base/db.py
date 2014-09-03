@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-from _base.config import REDIS
+from _base.config import REDIS, MONGO
 import redis as _redis
 from _base.intstr import int_str
-from _base.config import MONGO
+from mongokit import Document, Connection
 
-# author: zsp
 
 REDIS_KEY = 'RedisKey'
 REDIS_KEY_ID = 'RedisKeyId'
@@ -41,9 +40,27 @@ class RedisKey:
                 redis.hset(REDIS_KEY, key, _key)
 
             return _key
-
-
 auth = "{}-{}-{}".format(REDIS.API_KEY, REDIS.SECRET_KEY, REDIS.NAME)
 redis = _redis.StrictRedis(host="redis.duapp.com", port=80, password=auth)
-# redis = _redis.StrictRedis(host="127.0.0.1", port=6379)
 R = RedisKey(redis)
+# redis = _redis.StrictRedis(host="127.0.0.1", port=6379)
+
+
+#### mongo
+connection = Connection(host='mongo.duapp.com', port=8908)
+mongo_db = connection[MONGO.name]
+mongo_db.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
+
+
+@connection.register
+class UserResult(Document):
+    __collection__ = 'user_result'
+    __database__ = MONGO.name
+
+    structure = dict(
+        user_id=int,
+        result=[]
+    )
+    default_values = {
+        'result': [],
+    }
