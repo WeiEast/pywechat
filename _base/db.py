@@ -49,7 +49,7 @@ R = RedisKey(redis)
 #### mongo
 connection = Connection(host='mongo.duapp.com', port=8908)
 # _db = connection[MONGO.NAME]
-name = MONGO.name
+name = MONGO.NAME
 connection.name.authenticate(MONGO.API_KEY, MONGO.SECRET_KEY)
 mongo_db = connection.name
 
