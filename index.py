@@ -291,5 +291,3 @@ def map():
 
 from bae.core.wsgi import WSGIApplication
 application = WSGIApplication(app)
-# if __name__ == '__main__':
-#     app.run()

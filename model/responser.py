@@ -115,7 +115,7 @@ class IndividualRepoter:
         multi_state = ''
         try:
             for s in select_list:
-                if s.find(MULTI_FLAG) != -1:
+                if MULTI_FLAG in s:
                     if s == select_list[-1]:  # 普通多选
                         multi_state = self.multi_select(s)
                     elif s == select_list[-2]:  # 生成上一次多选的结果
@@ -253,18 +253,4 @@ class Item:
 
 
 if __name__ == '__main__':
-
-    from directory_tree import D
-    from _base.config import PATH
-    msg = {'FromUserName': 'lzy', 'ToUserName': 'kzing'}
-
-    select = ['2', '1', '1,5,6,7,8', '3']
-    user_rm('lzy')
-    for i in select:
-        msg['Content'] = i
-        r = IndividualRepoter(msg, D, PATH.INDIVIDUAL_PATH)
-        r.individual_response()
-    print user_select_list(msg['FromUserName'])
-    # print D
-    # print(user_result_dumps(msg['FromUserName']))
-    # pass
+    pass

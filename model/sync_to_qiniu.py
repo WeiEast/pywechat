@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-from _base.config import QINIU
+# from _base.config import QINIU
 from collections import defaultdict
 import os
 import json
@@ -8,6 +8,13 @@ import json
 # requirement:
 # 1.下载qrsync同步工具 - > http://developer.qiniu.com/docs/v6/tools/qrsync.html
 # 2.将此脚本与要上传的文件夹同级放置, 运行即可.
+
+
+class QINIU:
+
+    ACCESS_KEY = "VzrZ2ZjBIKyIImj6SwFU6TFCPIohtYC8PNCm5Oiy"
+    SECRET_KEY = "8pJf3D5d8kzXLMh5kYkDaeAK-hiNi4Hr4HwdcHTQ&bucket=xwrwz&key_prefix=&threshold=333"
+    BUCKET = "xwrwz"
 
 
 def _html():

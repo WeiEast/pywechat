@@ -67,7 +67,4 @@ def all_is_file(path):
 
 
 if __name__ == '__main__':
-    # print folders_list('tmp')
-    # print get_file_content('__readme.txt', '办照指南/办照通用指南/5.其他常用指南')
-    print files_list('办照指南/我去哪儿办照')
     pass
